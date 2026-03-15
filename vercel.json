@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "crons": [
+    { "path": "/api/analysis", "schedule": "0 0 * * *" },
+    { "path": "/api/analysis", "schedule": "0 14 * * *" }
+  ],
+  "functions": {
+    "api/analysis.js": { "runtime": "edge", "maxDuration": 45 }
+  },
+  "routes": [
+    { "src": "/api/analysis", "dest": "/api/analysis.js" },
+    { "src": "/(.*)",          "dest": "/index.html" }
+  ]
+}
